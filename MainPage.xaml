@@ -1,0 +1,47 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YourNamespace.MainPage">
+    <Grid Padding="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <StackLayout Grid.Column="0" Spacing="10">
+            <Label Text="Функції" FontSize="20" HorizontalOptions="Center" />
+            <Button Text="Open XML File" Clicked="OnOpenXmlFileClicked" />
+            <Button Text="SAX Parse" Clicked="OnSaxParseClicked" />
+            <Button Text="DOM Parse" Clicked="OnDomParseClicked" />
+            <Button Text="LINQ Parse" Clicked="OnLinqParseClicked" />
+            <Button Text="Transform to HTML" Clicked="OnTransformToHtmlClicked" />
+            <Button Text="Clear" Clicked="OnClearClicked" />
+            <Button Text="Exit" Clicked="OnExitClicked" />
+    
+
+        </StackLayout>
+        
+        <StackLayout Grid.Column="1" Spacing="10">
+            <Label Text="Лабораторна робота №2: Кадри науковців" FontSize="24" HorizontalOptions="Center" />
+            
+            <Entry x:Name="searchEntry" Placeholder="Введіть дані для пошуку" TextChanged="OnSearchTextChanged" />
+
+            <!-- Список результатів -->
+            <ListView x:Name="resultListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Spacing="5">
+                                <Label Text="{Binding FullName}" FontSize="18" FontAttributes="Bold" />
+                                <Label Text="{Binding Faculty}" FontSize="14" />
+                                <Label Text="{Binding Department}" FontSize="14" />
+                                <Label Text="{Binding Degree}" FontSize="14" />
+                                <Label Text="{Binding Rank}" FontSize="14" />
+                                <Label Text="{Binding RankDate, StringFormat='Дата присвоєння звання: {0:yyyy-MM-dd}'}" FontSize="14" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+</ContentPage>
